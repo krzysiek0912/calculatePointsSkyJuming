@@ -11,33 +11,18 @@ describe("calculateStylePoints", () => {
       assert.equal(actual, expected);
     });
     it("should work with different values", () => {
-      const actual = calculateStylePoints([18, 18.5, 17.5, 18.5, 18.5]);
-
-      const expected = 55;
-
-      assert.equal(actual, expected);
+      assert.equal(calculateStylePoints([18, 18.5, 17.5, 18.5, 18.5]), 55);
+      assert.equal(calculateStylePoints([19.0, 19.5, 19.0, 19.0, 19.0]), 57);
     });
-    it("not array", () => {
-      const actual = calculateStylePoints(18, 18.5, 17.5, 18.5, 18.5);
-
-      const expected = "error";
-
-      assert.equal(actual, expected);
+    it("should return error if not array", () => {
+      assert.equal(calculateStylePoints(18, 18.5, 17.5, 18.5, 18.5), "error");
     });
-    it("is no complet array", () => {
+    it("should return error if is no complet array", () => {
       const actual = calculateStylePoints([18, 18.5, 17.5, 18.5]);
 
       const expected = "error";
 
       assert.equal(actual, expected);
     });
-
-    // it("should return 0 seconds if no value is passed", () => {
-    //   const actual = formatDate();
-
-    //   const expected = "0s";
-
-    //   assert.equal(actual, expected);
-    // });
   });
 });
